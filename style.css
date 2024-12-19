@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.board {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 750px;
+    
+}
+
+.card {
+    width: 120px;
+    height: 120px;
+    background-color: salmon;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip {
+    transform: rotateX(180deg);
+    background-color: sandybrown;
+    transition: 0.3s;
+}
