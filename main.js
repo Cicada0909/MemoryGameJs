@@ -72,7 +72,7 @@ const flipCard = (event) => {
     
     if (!firstCard) {
         firstCard = card
-    } else if (!secondCard) {
+    } else if (!secondCard && card !== firstCard) {
         secondCard = card;
     }
 
