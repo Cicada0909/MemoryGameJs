@@ -15,6 +15,8 @@ const cardsArr = [
 
 let firstCard = null;
 let secondCard = null;
+let firstCardFront = null;
+let secondCardFront = null;
 
 const boardElem = document.querySelector(".board");
 
@@ -27,6 +29,10 @@ const createBoard = () => {
         cardElem.dataset.name = card.text;
 
         boardElem.appendChild(cardElem);
+
+        const cardElemFront = document.createElement("div");
+        cardElemFront.classList.add("card-front");
+        cardElem.appendChild(cardElemFront);
     });
 }
 
@@ -34,6 +40,8 @@ const unflipCards = () => {
     if (firstCard && secondCard) {
         firstCard.classList.remove("flip");
         secondCard.classList.remove("flip");
+        firstCardFront.classList.remove("flip-front");
+        secondCardFront.classList.remove("flip-front");
     }
 }
 
@@ -64,16 +72,20 @@ const checkCards = () => {
 
 const flipCard = (event) => {
     const target = event.target;
-    const card = target.closest(".card")
+    const card = target.closest(".card");
+    const cardFront = target.closest(".card-front");
 
     if (card) {
         card.classList.add("flip");
+        cardFront.classList.add("flip-front");
     }
     
     if (!firstCard) {
         firstCard = card
+        firstCardFront = cardFront
     } else if (!secondCard && card !== firstCard) {
         secondCard = card;
+        secondCardFront = cardFront;
     }
 
     if (firstCard && secondCard) {
